@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a card</title>
+    <style>
+        .container1{
+            display: flex;
+        }
+        .card{
+            background-color: black;
+            color: white;
+            display:flex;
+            width:1000px;
+            height:fit-content;
+            border:2px solid black;
+            /* font-family: Georgia, serif; */
+            font-weight: 200;
+            padding: 10px;
+            margin:10px;
+            border-radius: 10PX;
+        }
+        .text{
+            padding: 5px;
+        }
+        
+        .heading{
+            font-size: 22px;
+
+        }
+        .imgs{
+            position: relative;
+        }
+        .imgs img{
+            width:200px;
+            border-radius: 10px;
+        }
+        .text p{
+            color:lightgrey;
+        }
+        .capsule{
+            position: absolute;
+            z-index: 10;
+            bottom: 12px;
+            color: black;
+            right: 5px;
+            background-color: #5f5959;
+            opacity: 46;
+            color: white;
+            border-radius: 4px;
+            padding: 3px;
+        }
+        .inputs{
+            width: 200px;
+            height: 50px;
+            background-color: antiquewhite;
+            border-radius: 25px;
+        }
+        .title{
+            height:60px;
+            padding-top:1px;
+            padding-bottom: 15px;
+            font-size: large;
+            font-family: monospace;
+            text-align: center;
+            background-color: #5f5959;
+            color: antiquewhite;
+            border-radius: 20px;
+
+        }
+        .button{
+            background-color: cyan;
+            color: aliceblue;
+            width: 80px;
+            height: 30px;
+            border-radius: 20px;
+        }
+        .button:hover{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="title"><h1># # # # # * * * * * Card Generator * * * * * # # # # # </h1></div>
+    <div class="container1">
+        <div style="font-family: monospace; margin-top: 35px;"><h1>SAMPLE : </h1></div>
+        <div>
+            <img style="margin: 10px;" src="check it out.png" alt="">
+        </div>
+    </div>
+    <div>
+        <input class="inputs" type="text" placeholder="heading" id="1">
+        <input class="inputs" type="text" placeholder="Channel name" id="2">
+        <input class="inputs" type="text" placeholder="views" id="3">
+        <input class="inputs" type="text" placeholder="uploaded date" id="4">
+        <input class="inputs" type="text" placeholder="thumbnail link" id="5">
+        <input class="inputs" type="text" placeholder="duration" id="6">
+        
+        <button onclick="addcard()" class="button">ADD card</button>
+    </div>
+    <div id="container">
+
+    </div>
+
+    <script>
+        eheading=document.getElementById("1");
+        ecnames=document.getElementById("2");
+        eview=document.getElementById("3");
+        etimeold=document.getElementById("4");
+        ephoto=document.getElementById("5");
+        eduration=document.getElementById("6");
+
+
+        function card(headings,cname,view,timeold,photo,duration) {
+
+            html = `<div class="container2">
+                <div class="card">
+                    <div class="imgs">
+                        <img src="${photo}" alt="">
+                        <div class="capsule">${duration}</div>
+                        </div>
+                        <div class="text"> 
+                            <h1 class="heading">${headings}</h1>
+                            <p>${cname} . ${view} views . ${timeold} ago</p>
+                        </div>
+                    </div>
+                 </div>`
+        doc=document.getElementById("container")
+        doc.innerHTML+=html
+        }
+        function addcard(){
+            card(eheading.value,ecnames.value,eview.value,etimeold.value,ephoto.value,eduration.value);
+        }
+        
+    </script>
+    
+</body>
+</html>
